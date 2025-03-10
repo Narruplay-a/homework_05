@@ -1,6 +1,8 @@
 package ru.otus.cars
 
 fun main() {
+    println("\n===> fuel cars")
+    fuelCars()
     println("\n===> drive cars...")
     driveCars()
     println("\n===> inner test...")
@@ -90,4 +92,15 @@ fun repairEngine(car: VazPlatform) {
         is VazEngine.LADA_2107 -> println("Чистка карбюратора у двигателя объемом ${car.engine.volume} куб.см у машины $car")
         is VazEngine.SAMARA_2108 -> println("Угол зажигания у двигателя объемом ${car.engine.volume} куб.см у машины $car")
     }
+}
+
+fun fuelCars() {
+    val cars = listOf(
+        Togliatti.buildCar(Vaz2107, Car.Plates("123", 11)),
+        Togliatti.buildCar(Vaz2108, Car.Plates("123", 22)),
+        Taz
+    )
+
+    val tankStation = GasStation()
+    tankStation.addFuel(cars)
 }
